@@ -1,3 +1,6 @@
+Ось повний файл task.sql, як він має виглядати з двома новими changeset'ами в кінці:
+sql
+
 --liquibase formatted sql
 
 --changeset mate.acamemy:1 labels:0.0.1
@@ -22,7 +25,7 @@ CREATE TABLE Warehouses (
     Name VARCHAR(50),
     Address VARCHAR(50),
     CountryID INT,
-	FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
+        FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     PRIMARY KEY (ID)
 );
 --rollback DROP TABLE Warehouses;
@@ -38,3 +41,17 @@ CREATE TABLE ProductInventory (
     PRIMARY KEY (ID)
 );
 --rollback DROP TABLE ProductInventory;
+
+--changeset mate.acamemy:5 labels:0.0.2
+CREATE TABLE Users (
+    ID INT AUTO_INCREMENT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(50),
+    PRIMARY KEY (ID)
+);
+--rollback DROP TABLE Users;
+
+--changeset mate.acamemy:6 labels:0.0.3
+CREATE INDEX Email ON Users(Email);
+--rollback DROP INDEX Email ON Users;
