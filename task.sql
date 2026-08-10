@@ -1,6 +1,3 @@
-Ось повний файл task.sql, як він має виглядати з двома новими changeset'ами в кінці:
-sql
-
 --liquibase formatted sql
 
 --changeset mate.acamemy:1 labels:0.0.1
