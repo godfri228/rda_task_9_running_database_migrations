@@ -1,4 +1,5 @@
 --liquibase formatted sql
+
 --changeset mate.acamemy:1 labels:0.0.1
 CREATE TABLE Countries (
     ID INT,
@@ -21,7 +22,7 @@ CREATE TABLE Warehouses (
     Name VARCHAR(50),
     Address VARCHAR(50),
     CountryID INT,
-	FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     PRIMARY KEY (ID)
 );
 --rollback DROP TABLE Warehouses;
